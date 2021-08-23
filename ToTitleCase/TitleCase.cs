@@ -8,6 +8,10 @@ namespace ConvertToTitleCase
     {
         public static string ToTitleCase(this string givenString)
         {
+            if(givenString.Length == 0)
+            {
+                throw new Exception("string is empty");
+            }
             string titleCase = givenString[0].ToString().ToUpper() + givenString[1..];
             return titleCase;
         }

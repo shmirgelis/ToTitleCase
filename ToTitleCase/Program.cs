@@ -6,7 +6,7 @@ namespace ConvertToTitleCase
     {
         static void Main(string[] args)
         {
-            string tCase = ConvertToTitleCase.TitleCase.ToTitleCase("belekas");
+            string tCase = ConvertToTitleCase.TitleCase.ToTitleCase("b");
             Console.WriteLine(tCase);
         }
 
