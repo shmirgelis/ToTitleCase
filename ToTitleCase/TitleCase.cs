@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,14 +7,31 @@ namespace ConvertToTitleCase
 {
     public static class TitleCase
     {
+
         public static string ToTitleCase(this string givenString)
         {
-            if(givenString.Length == 0)
+            if (string.IsNullOrWhiteSpace(givenString))
             {
-                throw new Exception("string is empty");
+                return givenString;
             }
-            string titleCase = givenString[0].ToString().ToUpper() + givenString[1..];
-            return titleCase;
+
+            string[] strings = SplitStrings(givenString);
+
+            StringBuilder capitalizedString = new StringBuilder("");
+
+            foreach (var item in strings)
+            {
+                string titleCase = item[0].ToString().ToUpper() + item[1..];
+                capitalizedString.Append(titleCase + " ");
+            }
+
+            return capitalizedString.ToString().Trim();
+        }
+
+        static string[] SplitStrings(string givenString)
+        {
+            string[] strings = givenString.Split(" ");
+            return strings;
         }
     }
 }
