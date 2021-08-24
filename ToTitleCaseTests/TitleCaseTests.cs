@@ -3,12 +3,17 @@ using Xunit;
 
 namespace ToTitleCaseTests
 {
-    public class UnitTest1
+    public class TitleCaseTests
     {
         [Fact]
-        public void Test1()
+        public void String_is_white_space()
         {
-
+            //Arrange
+            string givenString = " ";
+            //Act
+            
+            //Assert
+            Assert.
         }
     }
 }
