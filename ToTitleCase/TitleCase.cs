@@ -15,7 +15,7 @@ namespace ConvertToTitleCase
                 return givenString;
             }
 
-            string[] strings = SplitStrings(givenString);
+            List<string> strings = SplitStrings(givenString);
 
             StringBuilder capitalizedString = new StringBuilder("");
 
@@ -25,13 +25,19 @@ namespace ConvertToTitleCase
                 capitalizedString.Append(titleCase + " ");
             }
 
-            return capitalizedString.ToString().Trim();
+            return capitalizedString.ToString();
         }
 
-        static string[] SplitStrings(string givenString)
+        static List<string> SplitStrings(string givenString)
         {
             string[] strings = givenString.Split(" ");
-            return strings;
+            List<string> cleanedStrings = new List<string>();
+            foreach (var item in strings)
+            {
+                item.Trim();
+                cleanedStrings.Add(item);
+            }
+            return cleanedStrings;
         }
     }
 }
